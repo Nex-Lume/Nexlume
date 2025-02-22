@@ -11,4 +11,8 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('team/', views.team_view, name='team'),
     path('contact/', views.contact_form, name='contact_form'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+# Add this only in DEBUG mode
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
